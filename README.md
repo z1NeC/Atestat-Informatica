@@ -8,10 +8,10 @@
 <br><br><br><br><br>
 
 **Profesor coordonator:**  
-[Numele Profesorului]
+GIOCAȘ CARMEN AFRODITA
 
 **Nume candidat:**  
-[Numele Tău]
+COJOCARIU DAVID
 
 <br><br><br>
 
