@@ -1,0 +1,153 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta charset="utf-8">
+    <title>Documentatie Atestat Wave</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+        body {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            text-align: justify;
+            font-size: 12pt;
+        }
+        .title-page {
+            text-align: center;
+            height: 100%;
+        }
+        h1 { font-size: 24pt; margin-top: 40pt; text-align: center; }
+        h2 { font-size: 18pt; margin-top: 20pt; color: #000; text-align: left; }
+        h3 { font-size: 14pt; margin-top: 10pt; text-align: center; }
+        h4 { font-size: 12pt; text-align: center; font-weight: normal; }
+        .page-break {
+            mso-special-character:line-break;
+            page-break-before:always;
+        }
+        ul { margin-bottom: 12pt; }
+        li { margin-bottom: 6pt; }
+        .toc { list-style: none; padding: 0; }
+        .toc li { margin-bottom: 12pt; }
+    </style>
+</head>
+<body>
+    <!-- PAGINA DE TITLU -->
+    <div class="title-page">
+        <h3>COLEGIUL NAȚIONAL „A. T. LAURIAN” BOTOȘANI</h3>
+        <h4>Specializarea Matematică-Informatică, Intensiv Engleză</h4>
+        
+        <br><br><br><br><br><br>
+        <h1>LUCRARE DE ATESTAT PROFESIONAL LA INFORMATICĂ</h1>
+        <br><br><br><br><br>
+        
+        <table width="100%" style="margin-top: 100pt;">
+            <tr>
+                <td align="left" width="50%"><strong>Profesor coordonator:</strong><br>[Numele Profesorului]</td>
+                <td align="right" width="50%"><strong>Candidat:</strong><br>[Numele Tău]</td>
+            </tr>
+        </table>
+        
+        <br><br><br><br><br>
+        <h3 style="text-align: center;">TEMA LUCRĂRII:</h3>
+        <h2 style="text-align: center;">WAVE — PLATFORMĂ PREMIUM DE ÎNCHIRIERI AUTO</h2>
+        
+        <br><br><br><br><br><br>
+        <h4 style="text-align: center;">Sesiunea Mai 2024</h4>
+    </div>
+    
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- CUPRINS -->
+    <h2>CUPRINS</h2>
+    <br>
+    <table width="100%" class="toc">
+        <tr><td>1. <strong>Argument</strong></td><td align="right">pag 3</td></tr>
+        <tr><td>2. <strong>Introducere</strong></td><td align="right">pag 4</td></tr>
+        <tr><td>3. <strong>Tehnologii utilizate</strong></td><td align="right">pag 5</td></tr>
+        <tr><td>&nbsp;&nbsp;&nbsp;3.1 HTML5</td><td align="right">pag 5</td></tr>
+        <tr><td>&nbsp;&nbsp;&nbsp;3.2 CSS3 și Design Modern</td><td align="right">pag 6</td></tr>
+        <tr><td>&nbsp;&nbsp;&nbsp;3.3 JavaScript și Interactivitate</td><td align="right">pag 7</td></tr>
+        <tr><td>4. <strong>Cerințe hardware și software</strong></td><td align="right">pag 8</td></tr>
+        <tr><td>5. <strong>Structura și conținutul proiectului</strong></td><td align="right">pag 9</td></tr>
+        <tr><td>6. <strong>Concluzii</strong></td><td align="right">pag 12</td></tr>
+        <tr><td>7. <strong>Bibliografie</strong></td><td align="right">pag 13</td></tr>
+    </table>
+
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- ARGUMENT -->
+    <h2>1. ARGUMENT</h2>
+    <p>Am ales ca temă de studiu pentru lucrarea mea de atestat dezvoltarea unei platforme de închirieri auto moderne, intitulată <strong>Wave</strong>, deoarece mobilitatea reprezintă o necesitate esențială în societatea contemporană. În contextul actual, utilizatorii caută soluții rapide, sigure și, mai ales, o experiență digitală premium care să le permită accesul la informații într-un mod intuitiv.</p>
+    <p>Proiectul meu își propune să demonstreze cum tehnologiile web fundamentale (HTML, CSS, JavaScript) pot fi utilizate pentru a crea o aplicație web complexă, care nu doar arată impecabil din punct de vedere vizual (urmând tendințele actuale de <em>glassmorphism</em> și <em>dark mode</em>), dar este și complet funcțională. Am pus un accent deosebit pe integrarea unor surse de date externe (API-uri) pentru a oferi o experiență dinamică, simulând un mediu real de producție.</p>
+
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- INTRODUCERE -->
+    <h2>2. INTRODUCERE</h2>
+    <p>Lucrarea de față prezintă platforma <strong>Wave</strong>, un site de închirieri auto de lux care pune la dispoziția utilizatorilor o flotă diversificată de vehicule. Aplicația este structurată sub forma unei pagini de tip Single Page Application (SPA) cu secțiuni distincte, oferind o navigare fluidă.</p>
+    <p>Principalele caracteristici ale proiectului sunt:</p>
+    <ul>
+        <li><strong>Design Responsive</strong>: Adaptabilitate completă pe dispozitive mobile, tablete și desktop.</li>
+        <li><strong>Dark Mode Dinamic</strong>: Posibilitatea de a comuta între teme vizuale cu salvarea preferinței utilizatorului.</li>
+        <li><strong>Generare Dinamică</strong>: Flota de mașini este generată automat dintr-o bază de date internă și îmbogățită cu imagini reale via Imagin Studio API.</li>
+        <li><strong>Formular de Rezervare Multi-step</strong>: Un proces complex de colectare a datelor, validat în timp real.</li>
+    </ul>
+
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- TEHNOLOGII -->
+    <h2>3. TEHNOLOGII UTILIZATE</h2>
+    <h3>3.1 HTML5</h3>
+    <p>Am utilizat HTML5 pentru a defini structura semantică a paginii. Elementele precum header, section, footer și nav asigură o ierarhie corectă a informațiilor, esențială atât pentru accesibilitate, cât și pentru optimizarea SEO.</p>
+    <h3>3.2 CSS3 și Design Modern</h3>
+    <p>Pentru stilizarea aplicației am folosit exclusiv Vanilla CSS, implementând concepte avansate:</p>
+    <ul>
+        <li>Variabile CSS (Custom Properties) utilizate pentru a gestiona culorile temelor.</li>
+        <li>Flexbox și CSS Grid pentru layout-uri complexe.</li>
+        <li>Animații declanșate de Intersection Observer API.</li>
+    </ul>
+    <h3>3.3 JavaScript (ES6+)</h3>
+    <p>JavaScript constituie motorul proiectului, fiind responsabil pentru integrarea API-ului Imagin Studio, gestionarea stării prin localStorage și validarea avansată a formularelor.</p>
+
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- HARDWARE -->
+    <h2>4. CERINȚE HARDWARE ȘI SOFTWARE</h2>
+    <p><strong>Cerințe Hardware:</strong> Procesor minim 1GHz, memorie RAM 512MB.</p>
+    <p><strong>Cerințe Software:</strong> Browser modern (Chrome, Firefox, Edge) cu suport pentru ES6 și CSS Variables. Dezvoltarea a fost realizată în Visual Studio Code.</p>
+
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- STRUCTURA -->
+    <h2>5. STRUCTURA ȘI CONȚINUTUL PROIECTULUI</h2>
+    <p>Proiectul este organizat logic în secțiuni care acoperă toate nevoile unui utilizator: vizualizarea ofertei, înțelegerea serviciilor și finalizarea unei rezervări.</p>
+    <p>Secțiunea de <strong>Flotă</strong> este piesa centrală a aplicației, unde tehnologia JavaScript preia datele din config-ul intern și construiește cardurile de mașini, cerând imagini transparente de la serverul Imagin Studio pentru a se potrivi perfect pe orice fundal ales de utilizator.</p>
+
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- CONCLUZII -->
+    <h2>6. CONCLUZII</h2>
+    <p>Dezvoltarea proiectului Wave a reprezentat o oportunitate excelentă de a aprofunda cunoștințele de programare web. Am reușit să creez o aplicație care îmbină estetica modernă cu funcționalitatea tehnică. Rezultatul este un produs digital complet, pregătit să răspundă nevoilor unui business real de închirieri auto.</p>
+
+    <br clear=all style='mso-special-character:line-break;page-break-before:always'>
+
+    <!-- BIBLIOGRAFIE -->
+    <h2>7. BIBLIOGRAFIE</h2>
+    <ol>
+        <li>MDN Web Docs (developer.mozilla.org)</li>
+        <li>Google Fonts și Font Awesome Libraries</li>
+        <li>Imagin Studio API Documentation</li>
+        <li>W3Schools Web Tutorials</li>
+    </ol>
+</body>
+</html>

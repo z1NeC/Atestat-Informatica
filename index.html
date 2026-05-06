@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave — Închirieri Auto</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="wave-loader" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="15" cy="15" r="6"><animate attributeName="cy" values="15;5;15" dur="0.8s" repeatCount="indefinite" begin="0s"/></circle>
+                <circle cx="45" cy="15" r="6"><animate attributeName="cy" values="15;5;15" dur="0.8s" repeatCount="indefinite" begin="0.15s"/></circle>
+                <circle cx="75" cy="15" r="6"><animate attributeName="cy" values="15;5;15" dur="0.8s" repeatCount="indefinite" begin="0.3s"/></circle>
+                <circle cx="105" cy="15" r="6"><animate attributeName="cy" values="15;5;15" dur="0.8s" repeatCount="indefinite" begin="0.45s"/></circle>
+            </svg>
+            <p>Wave</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="wave.png" alt="Wave Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#acasa" class="nav-link active">Acasă</a></li>
+                <li><a href="#despre" class="nav-link">Despre Noi</a></li>
+                <li><a href="#flota" class="nav-link">Flota</a></li>
+                <li><a href="#servicii" class="nav-link">Servicii</a></li>
+                <li><a href="#testimoniale" class="nav-link">Testimoniale</a></li>
+                <li><a href="#formular" class="nav-link cta-link">Rezervă Acum</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
+                <li><a href="documentatie.html" class="nav-link doc-btn" title="Documentație Atestat"><i class="fas fa-file-alt"></i></a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Meniu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="acasa">
+        <div class="hero-bg">
+            <div class="hero-wave">
+                <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,60 C180,100 360,20 540,60 C720,100 900,20 1080,60 C1260,100 1440,20 1620,60 C1800,100 1980,20 2160,60 C2340,100 2520,20 2700,60 C2880,100 2880,60 2880,60 L2880,120 L0,120Z" fill="rgba(255,255,255,0.85)"/>
+                </svg>
+            </div>
+            <div class="hero-wave hero-wave-2">
+                <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,80 C240,30 480,110 720,60 C960,10 1200,90 1440,60 C1680,30 1920,110 2160,60 C2400,10 2640,90 2880,60 L2880,120 L0,120Z" fill="rgba(255,255,255,0.4)"/>
+                </svg>
+            </div>
+            <div class="hero-wave hero-wave-3">
+                <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,40 C320,90 640,10 960,60 C1280,110 1600,10 1920,60 C2240,110 2560,20 2880,50 L2880,120 L0,120Z" fill="rgba(255,255,255,0.2)"/>
+                </svg>
+            </div>
+        </div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>Nr. 1 în închirieri auto</span>
+            </div>
+            <h1>
+                <span class="hero-line">Călătoria ta</span>
+                <span class="hero-line accent">începe cu <em>Wave</em></span>
+            </h1>
+            <p class="hero-desc">Descoperă libertatea drumului deschis. Mașini premium, prețuri accesibile și servicii de excepție pentru fiecare aventură.</p>
+            <div class="hero-actions">
+                <a href="#formular" class="btn btn-primary btn-lg">
+                    <i class="fas fa-car"></i>
+                    Rezervă Acum
+                </a>
+                <a href="#flota" class="btn btn-outline btn-lg">
+                    <i class="fas fa-th-large"></i>
+                    Vezi Flota
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="500">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Mașini disponibile</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="15000">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Clienți mulțumiți</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="12">0</span>
+                    <span class="stat-label">Ani experiență</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <p>Scroll</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="despre">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-tag"><i class="fas fa-info-circle"></i> Despre Noi</span>
+                <h2>De ce să alegi <span class="text-gradient">Wave</span>?</h2>
+                <p class="section-subtitle">Suntem pasionați de mașini și dedicați să oferim cea mai bună experiență de închiriere auto din România.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card" data-animate data-delay="100">
+                    <div class="about-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Siguranță Maximă</h3>
+                    <p>Toate mașinile noastre sunt verificate tehnic și asigurate CASCO complet, pentru liniștea ta.</p>
+                </div>
+                <div class="about-card" data-animate data-delay="200">
+                    <div class="about-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Prețuri Transparente</h3>
+                    <p>Fără costuri ascunse sau surprize. Prețul pe care îl vezi este prețul pe care îl plătești.</p>
+                </div>
+                <div class="about-card" data-animate data-delay="300">
+                    <div class="about-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suport 24/7</h3>
+                    <p>Echipa noastră este disponibilă non-stop pentru orice întrebare sau asistență rutieră.</p>
+                </div>
+                <div class="about-card" data-animate data-delay="400">
+                    <div class="about-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Livrare Oriunde</h3>
+                    <p>Îți livrăm mașina direct la aeroport, hotel sau la adresa dorită, fără costuri suplimentare.</p>
+                </div>
+                <div class="about-card" data-animate data-delay="500">
+                    <div class="about-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Flota Premium</h3>
+                    <p>De la city cars economicoase până la SUV-uri de lux, avem mașina perfectă pentru tine.</p>
+                </div>
+                <div class="about-card" data-animate data-delay="600">
+                    <div class="about-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Proces Rapid</h3>
+                    <p>Rezervare în mai puțin de 5 minute. Completezi formularul online și noi ne ocupăm de restul.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="section fleet" id="flota">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-tag"><i class="fas fa-car-side"></i> Flota Noastră</span>
+                <h2>Mașini pentru fiecare <span class="text-gradient">stil</span></h2>
+                <p class="section-subtitle">Alege dintr-o gamă variată de mașini, de la economicoase la premium.</p>
+            </div>
+
+            <div class="fleet-filters" data-animate>
+                <button class="filter-btn active" data-filter="all">Toate</button>
+                <button class="filter-btn" data-filter="sedan">Sedan</button>
+                <button class="filter-btn" data-filter="suv">SUV</button>
+                <button class="filter-btn" data-filter="hatchback">Hatchback</button>
+                <button class="filter-btn" data-filter="break">Break</button>
+                <button class="filter-btn" data-filter="coupe">Coupe</button>
+            </div>
+
+            <div class="fleet-grid" id="fleetGrid">
+                <!-- Cards generated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="servicii">
+        <div class="services-bg"></div>
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-tag"><i class="fas fa-concierge-bell"></i> Servicii</span>
+                <h2>Servicii <span class="text-gradient">complete</span></h2>
+                <p class="section-subtitle">Oferim mult mai mult decât simple închirieri auto.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-animate data-delay="100">
+                    <div class="service-number">01</div>
+                    <div class="service-icon"><i class="fas fa-plane-arrival"></i></div>
+                    <h3>Transfer Aeroport</h3>
+                    <p>Ridicare și predare direct de la/la aeroport, fără stress și fără întârzieri.</p>
+                </div>
+                <div class="service-card" data-animate data-delay="200">
+                    <div class="service-number">02</div>
+                    <div class="service-icon"><i class="fas fa-route"></i></div>
+                    <h3>Închiriere Lungă Durată</h3>
+                    <p>Planuri speciale pentru închirieri de peste 30 de zile, cu reduceri semnificative.</p>
+                </div>
+                <div class="service-card" data-animate data-delay="300">
+                    <div class="service-number">03</div>
+                    <div class="service-icon"><i class="fas fa-baby-carriage"></i></div>
+                    <h3>Echipamente Extra</h3>
+                    <p>Scaun copil, GPS, Wi-Fi portabil și alte accesorii la cerere.</p>
+                </div>
+                <div class="service-card" data-animate data-delay="400">
+                    <div class="service-number">04</div>
+                    <div class="service-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>Asigurare Completă</h3>
+                    <p>Pachet CASCO Full cu acoperire completă pentru liniștea ta deplină.</p>
+                </div>
+                <div class="service-card" data-animate data-delay="500">
+                    <div class="service-number">05</div>
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Asistență Rutieră</h3>
+                    <p>Suport tehnic și asistență rutieră 24/7 pe toată durata închirierii.</p>
+                </div>
+                <div class="service-card" data-animate data-delay="600">
+                    <div class="service-number">06</div>
+                    <div class="service-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>Înlocuire Mașină</h3>
+                    <p>În cazul oricărei probleme tehnice, îți oferim mașină de înlocuire imediat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimoniale">
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-tag"><i class="fas fa-quote-left"></i> Testimoniale</span>
+                <h2>Ce spun <span class="text-gradient">clienții</span> noștri</h2>
+                <p class="section-subtitle">Feedback-ul clienților este cea mai mare recompensă a noastră.</p>
+            </div>
+            <div class="testimonials-slider" data-animate>
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Servicii impecabile! Am închiriat un BMW X5 pentru o săptămână și totul a fost perfect. Mașina curată, nouă și procesul foarte simplu."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AM</div>
+                            <div class="author-info">
+                                <strong>Andrei Mihai</strong>
+                                <span>București</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Recomand cu încredere! Prețuri foarte bune, mașini impecabile și personal amabil. Am folosit serviciul de transfer aeroport și a fost excelent."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">EP</div>
+                            <div class="author-info">
+                                <strong>Elena Popescu</strong>
+                                <span>Cluj-Napoca</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"A treia oară când închiriez de la Wave și de fiecare dată experiența e la fel de bună. Mașinile sunt întreținute perfect și echipa e super."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DV</div>
+                            <div class="author-info">
+                                <strong>Dan Voiculescu</strong>
+                                <span>Timișoara</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Am fost plăcut surprins de calitatea serviciilor. Mercedes-ul GLE pe care l-am închiriat arăta ca nou. Voi reveni cu siguranță!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RI</div>
+                            <div class="author-info">
+                                <strong>Radu Ionescu</strong>
+                                <span>Iași</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="testimonial-dots" id="testimonialDots"></div>
+                    <button class="testimonial-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Form Section -->
+    <section class="section form-section" id="formular">
+        <div class="form-bg-decoration"></div>
+        <div class="container">
+            <div class="section-header" data-animate>
+                <span class="section-tag"><i class="fas fa-file-signature"></i> Rezervare</span>
+                <h2>Rezervă mașina <span class="text-gradient">perfectă</span></h2>
+                <p class="section-subtitle">Completează formularul de mai jos și te vom contacta în cel mai scurt timp.</p>
+            </div>
+
+            <div class="form-wrapper" data-animate>
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <span>Mașina</span>
+                    </div>
+                    <div class="progress-line"><div class="progress-fill" id="progressFill1"></div></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <span>Perioada</span>
+                    </div>
+                    <div class="progress-line"><div class="progress-fill" id="progressFill2"></div></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <span>Date Personale</span>
+                    </div>
+                </div>
+
+                <form id="rentalForm" novalidate>
+                    <!-- Step 1: Car Selection -->
+                    <div class="form-step active" id="step1">
+                        <h3 class="step-title"><i class="fas fa-car"></i> Alege Mașina</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="marca">
+                                    <i class="fas fa-industry"></i> Marca *
+                                </label>
+                                <select id="marca" name="marca" required>
+                                    <option value="">Selectează marca</option>
+                                </select>
+                                <span class="error-msg" id="errorMarca"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="model">
+                                    <i class="fas fa-car-alt"></i> Model *
+                                </label>
+                                <select id="model" name="model" required disabled>
+                                    <option value="">Selectează mai întâi marca</option>
+                                </select>
+                                <span class="error-msg" id="errorModel"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="an">
+                                    <i class="fas fa-calendar"></i> An fabricație *
+                                </label>
+                                <select id="an" name="an" required disabled>
+                                    <option value="">Selectează anul</option>
+                                </select>
+                                <span class="error-msg" id="errorAn"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="motorizare">
+                                    <i class="fas fa-cogs"></i> Motorizare *
+                                </label>
+                                <select id="motorizare" name="motorizare" required disabled>
+                                    <option value="">Selectează motorizarea</option>
+                                </select>
+                                <span class="error-msg" id="errorMotorizare"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="caroserie">
+                                    <i class="fas fa-truck-pickup"></i> Tip caroserie *
+                                </label>
+                                <select id="caroserie" name="caroserie" required disabled>
+                                    <option value="">Selectează caroseria</option>
+                                </select>
+                                <span class="error-msg" id="errorCaroserie"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="culoare">
+                                    <i class="fas fa-palette"></i> Culoare *
+                                </label>
+                                <select id="culoare" name="culoare" required disabled>
+                                    <option value="">Selectează culoarea</option>
+                                </select>
+                                <span class="error-msg" id="errorCuloare"></span>
+                            </div>
+                        </div>
+
+                        <div class="selected-car-preview" id="carPreview" style="display:none;">
+                            <h4><i class="fas fa-check-circle"></i> Mașina selectată:</h4>
+                            <p id="carPreviewText"></p>
+                        </div>
+
+                        <div class="form-nav">
+                            <div></div>
+                            <button type="button" class="btn btn-primary btn-next" onclick="nextStep(1)">
+                                Continuă <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Period -->
+                    <div class="form-step" id="step2">
+                        <h3 class="step-title"><i class="fas fa-calendar-alt"></i> Perioada Închirierii</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="dataStart">
+                                    <i class="fas fa-calendar-check"></i> Data preluare *
+                                </label>
+                                <input type="date" id="dataStart" name="dataStart" required>
+                                <span class="error-msg" id="errorDataStart"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="dataEnd">
+                                    <i class="fas fa-calendar-times"></i> Data returnare *
+                                </label>
+                                <input type="date" id="dataEnd" name="dataEnd" required>
+                                <span class="error-msg" id="errorDataEnd"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="locPreluare">
+                                    <i class="fas fa-map-pin"></i> Loc preluare *
+                                </label>
+                                <select id="locPreluare" name="locPreluare" required>
+                                    <option value="">Selectează locația</option>
+                                    <option value="bucuresti">București - Sediu Central</option>
+                                    <option value="otopeni">Aeroport Otopeni</option>
+                                    <option value="cluj">Cluj-Napoca</option>
+                                    <option value="timisoara">Timișoara</option>
+                                    <option value="iasi">Iași</option>
+                                    <option value="constanta">Constanța</option>
+                                    <option value="brasov">Brașov</option>
+                                    <option value="sibiu">Sibiu</option>
+                                </select>
+                                <span class="error-msg" id="errorLocPreluare"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="locReturnare">
+                                    <i class="fas fa-map-marker-alt"></i> Loc returnare *
+                                </label>
+                                <select id="locReturnare" name="locReturnare" required>
+                                    <option value="">Selectează locația</option>
+                                    <option value="bucuresti">București - Sediu Central</option>
+                                    <option value="otopeni">Aeroport Otopeni</option>
+                                    <option value="cluj">Cluj-Napoca</option>
+                                    <option value="timisoara">Timișoara</option>
+                                    <option value="iasi">Iași</option>
+                                    <option value="constanta">Constanța</option>
+                                    <option value="brasov">Brașov</option>
+                                    <option value="sibiu">Sibiu</option>
+                                </select>
+                                <span class="error-msg" id="errorLocReturnare"></span>
+                            </div>
+                        </div>
+
+                        <div class="rental-summary" id="rentalSummary" style="display:none;">
+                            <div class="summary-item">
+                                <span>Durata:</span>
+                                <strong id="durata"></strong>
+                            </div>
+                        </div>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-outline btn-prev" onclick="prevStep(2)">
+                                <i class="fas fa-arrow-left"></i> Înapoi
+                            </button>
+                            <button type="button" class="btn btn-primary btn-next" onclick="nextStep(2)">
+                                Continuă <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Personal Data -->
+                    <div class="form-step" id="step3">
+                        <h3 class="step-title"><i class="fas fa-user"></i> Date Personale</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nume">
+                                    <i class="fas fa-user-tag"></i> Nume *
+                                </label>
+                                <input type="text" id="nume" name="nume" placeholder="Ex: Popescu" required>
+                                <span class="error-msg" id="errorNume"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="prenume">
+                                    <i class="fas fa-user-edit"></i> Prenume *
+                                </label>
+                                <input type="text" id="prenume" name="prenume" placeholder="Ex: Ion" required>
+                                <span class="error-msg" id="errorPrenume"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cnp">
+                                    <i class="fas fa-id-card"></i> CNP *
+                                </label>
+                                <input type="text" id="cnp" name="cnp" placeholder="13 cifre" maxlength="13" required>
+                                <span class="error-msg" id="errorCnp"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="dataNastere">
+                                    <i class="fas fa-birthday-cake"></i> Data nașterii *
+                                </label>
+                                <input type="date" id="dataNastere" name="dataNastere" required>
+                                <span class="error-msg" id="errorDataNastere"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Email *
+                                </label>
+                                <input type="email" id="email" name="email" placeholder="exemplu@email.com" required>
+                                <span class="error-msg" id="errorEmail"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefon">
+                                    <i class="fas fa-phone"></i> Număr telefon *
+                                </label>
+                                <input type="tel" id="telefon" name="telefon" placeholder="07XX XXX XXX" required>
+                                <span class="error-msg" id="errorTelefon"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="categorie">
+                                    <i class="fas fa-id-badge"></i> Categoria permis *
+                                </label>
+                                <select id="categorie" name="categorie" required>
+                                    <option value="">Selectează categoria</option>
+                                    <option value="AM">AM - Moped</option>
+                                    <option value="A1">A1 - Motociclete ≤125cc</option>
+                                    <option value="A2">A2 - Motociclete ≤35kW</option>
+                                    <option value="A">A - Motociclete</option>
+                                    <option value="B1">B1 - Cvadricicluri</option>
+                                    <option value="B">B - Autoturisme</option>
+                                    <option value="BE">BE - Autoturisme + remorcă</option>
+                                    <option value="C1">C1 - Vehicule 3.5t-7.5t</option>
+                                    <option value="C">C - Vehicule >3.5t</option>
+                                    <option value="D1">D1 - Microbuze</option>
+                                    <option value="D">D - Autobuze</option>
+                                </select>
+                                <span class="error-msg" id="errorCategorie"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="observatii">
+                                    <i class="fas fa-comment-alt"></i> Observații
+                                </label>
+                                <textarea id="observatii" name="observatii" placeholder="Cerințe speciale, întrebări..." rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="termeni" name="termeni" required>
+                                <span class="checkmark"></span>
+                                Accept <a href="termeni.html" target="_blank" class="link">Termenii și Condițiile</a> și <a href="politica.html" target="_blank" class="link">Politica de Confidențialitate</a> *
+                            </label>
+                            <span class="error-msg" id="errorTermeni"></span>
+                        </div>
+
+                        <div class="form-nav">
+                            <button type="button" class="btn btn-outline btn-prev" onclick="prevStep(3)">
+                                <i class="fas fa-arrow-left"></i> Înapoi
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <i class="fas fa-paper-plane"></i> Trimite Rezervarea
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage" style="display:none;">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Rezervare Trimisă cu Succes!</h3>
+                    <p>Mulțumim pentru rezervare! Te vom contacta în cel mai scurt timp pentru confirmare.</p>
+                    <button class="btn btn-primary" onclick="resetForm()">
+                        <i class="fas fa-redo"></i> Rezervare Nouă
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,0 L0,0 Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="wave.png" alt="Wave Logo">
+                    </a>
+                    <p>Închirieri auto premium la prețuri accesibile. Călătoria ta perfectă începe cu noi.</p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Link-uri Rapide</h4>
+                    <ul>
+                        <li><a href="#acasa">Acasă</a></li>
+                        <li><a href="#despre">Despre Noi</a></li>
+                        <li><a href="#flota">Flota</a></li>
+                        <li><a href="#servicii">Servicii</a></li>
+                        <li><a href="#formular">Rezervare</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Locații</h4>
+                    <ul>
+                        <li><a href="#">București</a></li>
+                        <li><a href="#">Cluj-Napoca</a></li>
+                        <li><a href="#">Timișoara</a></li>
+                        <li><a href="#">Iași</a></li>
+                        <li><a href="#">Constanța</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="termeni.html">Termeni și Condiții</a></li>
+                        <li><a href="politica.html">Politica de Confidențialitate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> I.C.Bratianu , Botosani</li>
+                        <li><i class="fas fa-phone"></i> 0751953052</li>
+                        <li><i class="fas fa-envelope"></i> contact@wave.ro</li>
+                        <li><i class="fas fa-clock"></i> Luni - Vineri: 08:00 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wave Închirieri Auto. Toate drepturile rezervate.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

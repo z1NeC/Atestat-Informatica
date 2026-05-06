@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termeni și Condiții | Wave</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .legal-content {
+            padding: 120px 0 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+        }
+        body.dark-mode .legal-card {
+            background: var(--gray-50);
+            border-color: var(--gray-100);
+        }
+        .legal-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .legal-header h1 {
+            font-size: 2.5rem;
+            color: var(--navy-900);
+            margin-bottom: 16px;
+        }
+        .legal-body h2 {
+            font-size: 1.5rem;
+            color: var(--navy-900);
+            margin: 32px 0 16px;
+        }
+        .legal-body p {
+            color: var(--gray-600);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--blue-600);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+        .back-home:hover {
+            color: var(--blue-700);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body class="">
+    <!-- Navbar simple -->
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="wave.png" alt="Wave Logo">
+            </a>
+            <a href="index.html" class="btn btn-primary">Înapoi la site</a>
+        </div>
+    </nav>
+
+    <div class="container legal-content">
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Înapoi la prima pagină</a>
+        
+        <div class="legal-card">
+            <div class="legal-header">
+                <h1>Termeni și Condiții</h1>
+                <p>Ultima actualizare: 1 Mai 2024</p>
+            </div>
+            
+            <div class="legal-body">
+                <h2>1. Introducere</h2>
+                <p>Prin utilizarea acestui site și a serviciilor de închiriere Wave, sunteți de acord cu prezenții termeni și condiții. Vă rugăm să îi citiți cu atenție înainte de a efectua o rezervare.</p>
+
+                <h2>2. Condiții pentru Locatar</h2>
+                <p>Pentru a închiria un autovehicul Wave, locatarul trebuie să îndeplinească următoarele condiții:</p>
+                <ul>
+                    <li>Vârsta minimă de 21 de ani.</li>
+                    <li>Posesia unui permis de conducere valid de cel puțin un an.</li>
+                    <li>Prezentarea unui act de identitate (buletin sau pașaport) valid.</li>
+                </ul>
+
+                <h2>3. Rezervare și Plată</h2>
+                <p>Rezervarea devine fermă după confirmarea telefonică sau prin email de către echipa noastră. Plata se efectuează la preluarea mașinii sau online, conform tarifelor afișate pe site la momentul rezervării.</p>
+
+                <h2>4. Garanția (Depozitul)</h2>
+                <p>La preluarea autovehiculului, se va reține o garanție care variază în funcție de clasa mașinii. Aceasta va fi restituită integral la returnarea mașinii în aceleași condiții în care a fost preluată.</p>
+
+                <h2>5. Utilizarea Autovehiculului</h2>
+                <p>Este strict interzisă utilizarea mașinii pentru transport de mărfuri periculoase, participarea la curse auto sau sub influența băuturilor alcoolice/substanțelor interzise.</p>
+
+                <h2>6. Limitarea Răspunderii</h2>
+                <p>Wave nu este responsabilă pentru pierderea obiectelor personale lăsate în mașină sau pentru întârzierile cauzate de forța majoră.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Aplică dark mode dacă este salvat în localStorage
+        if (localStorage.getItem("wave_theme") === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+    </script>
+</body>
+</html>

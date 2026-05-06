@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentație Atestat 2026 | Wave - Cojocariu David</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --pdf-bg: #1a1c1e;
+            --page-width: 210mm;
+            --page-height: 297mm;
+            --accent: #2563eb;
+        }
+
+        body {
+            background: var(--pdf-bg);
+            margin: 0;
+            padding: 80px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.5;
+            text-align: justify;
+            font-size: 12pt;
+        }
+
+        .pdf-viewer {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 100%;
+        }
+
+        .page {
+            background: white;
+            width: var(--page-width);
+            min-height: var(--page-height);
+            padding: 2.5cm;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            box-sizing: border-box;
+            position: relative;
+            color: #111;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .doc-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background: #0f172a;
+            border-bottom: 2px solid var(--accent);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            justify-content: space-between;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .doc-header .info { display: flex; align-items: center; gap: 20px; }
+        .doc-header img { height: 35px; }
+
+        /* Typography */
+        h1 { font-size: 26pt; margin: 40pt 0 20pt; font-family: 'Inter', sans-serif; font-weight: 900; color: #0f172a; text-align: center; line-height: 1.2; }
+        h2 { font-size: 14pt; margin: 25pt 0 15pt; border-bottom: 2px solid #e2e8f0; padding-bottom: 5pt; color: var(--accent); font-family: 'Inter', sans-serif; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+        h3 { font-size: 12pt; margin: 15pt 0 10pt; color: #1e293b; font-family: 'Inter', sans-serif; font-weight: 700; }
+        p { font-size: 12pt; line-height: 1.5; text-align: justify; margin-bottom: 12pt; color: #222; }
+        
+        .code-block {
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 10.5pt;
+            margin: 20pt 0;
+            overflow-x: auto;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .code-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Mockups */
+        .mockup {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25pt 0;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            border: 1px solid #1e293b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 10px;
+        }
+
+        .mockup-nav { display: flex; gap: 15px; font-size: 10px; color: #94a3b8; }
+        .mockup-nav span.active { color: white; border-bottom: 1px solid white; }
+
+        .mockup-fleet-card {
+            width: 250px;
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .mockup-fleet-img { height: 130px; background: #0f172a; display: flex; align-items: center; justify-content: center; }
+        .mockup-fleet-info { padding: 15px; }
+        .mockup-fleet-price { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+
+        .mockup-form-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .mockup-step { width: 30px; height: 30px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; }
+        .mockup-line { position: absolute; top: 15px; left: 30px; right: 30px; height: 2px; background: #334155; z-index: -1; }
+
+        .page-number {
+            position: absolute;
+            bottom: 1.5cm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 11pt;
+            color: #64748b;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .doc-header { display: none; }
+            .page { box-shadow: none; margin: 0; page-break-after: always; width: 100%; border: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="doc-header">
+        <div class="info">
+            <img src="wave.png" alt="Wave Logo">
+            <div style="border-left: 1px solid #334155; padding-left: 20px;">
+                <span style="display: block; font-size: 14px; font-weight: 700;">DOCUMENTAȚIE ATESTAT</span>
+                <span style="font-size: 11px; color: #94a3b8;">Cojocariu David - Colegiul Național „A.T. Laurian”</span>
+            </div>
+        </div>
+        <a href="index.html" class="btn btn-primary" style="font-size: 13px; font-weight: 600; border-radius: 6px;">Înapoi la Proiect</a>
+    </div>
+
+    <div class="pdf-viewer">
+        <!-- PAGINA 1: TITLU -->
+        <div class="page">
+            <div style="text-align: center; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+                <div>
+                    <h3 style="margin-top: 0;">COLEGIUL NAȚIONAL „A. T. LAURIAN” BOTOȘANI</h3>
+                    <h4 style="font-weight: 400; margin-top: 10px;">Specializarea Matematică-Informatică, Intensiv Informatică</h4>
+                </div>
+
+                <div style="margin: 40pt 0;">
+                    <div style="font-size: 12pt; font-weight: 600; color: var(--accent); margin-bottom: 15pt; text-transform: uppercase;">PROIECT PENTRU OBȚINEREA CERTIFICATULUI DE COMPETENȚE PROFESIONALE</div>
+                    <h1 style="font-size: 36pt; margin-top: 0; color: #000;">WAVE</h1>
+                    <div style="font-size: 18pt; font-weight: 400; color: #475569; margin-top: -5pt;">Platformă Digitală Premium de Închirieri Auto</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; text-align: left; margin: 50pt 0; border-top: 2px solid #f1f5f9; padding-top: 40pt;">
+                    <div>
+                        <div style="font-size: 11pt; color: #64748b; text-transform: uppercase; letter-spacing: 1px;">Profesor Coordonator:</div>
+                        <div style="font-size: 16pt; font-weight: 700; margin-top: 5px;">GIOCAȘ CARMEN AFRODITA</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 11pt; color: #64748b; text-transform: uppercase; letter-spacing: 1px;">Absolvent:</div>
+                        <div style="font-size: 16pt; font-weight: 700; margin-top: 5px;">COJOCARIU DAVID</div>
+                    </div>
+                </div>
+
+                <div style="font-size: 14pt; font-weight: 600; border-top: 1px solid #eee; padding-top: 20pt;">2026</div>
+            </div>
+            <div class="page-number">Pagina 1</div>
+        </div>
+
+        <!-- PAGINA 2: CUPRINS -->
+        <div class="page">
+            <h2>Cuprins</h2>
+            <div style="margin-top: 30pt; line-height: 2.2; font-size: 13pt;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc;">
+                    <span>1. <strong>Argument</strong></span><span>pag. 3</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc;">
+                    <span>2. <strong>Descrierea Tehnologiilor Utilizate</strong></span><span>pag. 4</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>2.1 HTML5 & Structură Semantică</span><span>pag. 4</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>2.2 CSS3 & Design Sistem</span><span>pag. 5</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>2.3 JavaScript & Dinamică</span><span>pag. 6</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc;">
+                    <span>3. <strong>Arhitectura și Funcționalitățile Aplicației</strong></span><span>pag. 7</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>3.1 Sistemul de Navigare și Preloader</span><span>pag. 7</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>3.2 Secțiunea Hero și Particule</span><span>pag. 8</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>3.3 Flota Dinamică și Filtrarea</span><span>pag. 9</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>3.4 Formularul de Rezervare Multi-Step</span><span>pag. 11</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc; padding-left: 20px;">
+                    <span>3.5 Managementul Temelor (Dark Mode)</span><span>pag. 13</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc;">
+                    <span>4. <strong>Integrare API și Stocare</strong></span><span>pag. 14</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc;">
+                    <span>5. <strong>Cerințe Hardware și Software</strong></span><span>pag. 15</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc;">
+                    <span>6. <strong>Concluzii</strong></span><span>pag. 16</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px dotted #ccc;">
+                    <span>7. <strong>Bibliografie</strong></span><span>pag. 17</span>
+                </div>
+            </div>
+            <div class="page-number">Pagina 2</div>
+        </div>
+
+        <!-- PAGINA 3: ARGUMENT -->
+        <div class="page">
+            <h2>1. Argument</h2>
+            <p>Alegerea temei proiectului de atestat, <strong>„Wave — Platformă Digitală Premium de Închirieri Auto”</strong>, a fost motivată de dorința de a explora și implementa cele mai noi tehnologii web într-un context practic și utilitar. Într-o eră digitală în continuă expansiune, industria de rent-a-car necesită soluții software care să ofere nu doar funcționalitate, ci și o experiență de utilizare (UX) de înalt nivel.</p>
+            <p>Prin acest proiect, am urmărit crearea unui ecosistem digital complet care să simuleze fluxul real al unui business de închirieri: de la captarea atenției prin design, până la gestionarea datelor și procesarea unei rezervări. Am pus accent pe <strong>performanță</strong>, <strong>interactivitate</strong> și <strong>estetică modernă</strong>.</p>
+            <p>Principalele obiective tehnice ale proiectului au fost:</p>
+            <ul>
+                <li>Implementarea unui sistem de generare dinamică a conținutului pentru a reduce timpul de încărcare și a ușura mentenanța.</li>
+                <li>Integrarea unor servicii externe (API-uri) pentru a oferi o reprezentare vizuală realistă a flotei.</li>
+                <li>Crearea unui sistem de teme (Light/Dark) bazat pe preferințele utilizatorului, utilizând variabile CSS native.</li>
+                <li>Dezvoltarea unui formular complex, validat prin JavaScript, care să asigure colectarea corectă a datelor clienților.</li>
+            </ul>
+            <div class="page-number">Pagina 3</div>
+        </div>
+
+        <!-- PAGINA 4: TEHNOLOGII -->
+        <div class="page">
+            <h2>2. Descrierea Tehnologiilor Utilizate</h2>
+            <p>Proiectul a fost dezvoltat utilizând tehnologiile fundamentale ale web-ului modern, fără dependențe externe masive, pentru a demonstra măiestria în utilizarea limbajelor de bază.</p>
+            
+            <h3>2.1 HTML5 & Structură Semantică</h3>
+            <p>Utilizarea HTML5 a permis crearea unei structuri bine definite, accesibile și optimizate SEO. Am utilizat tag-uri semantice precum <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code> și <code>&lt;article&gt;</code> pentru a organiza logic informația.</p>
+            
+            <span class="code-title">Exemplu de structură semantică pentru cardul auto:</span>
+            <div class="code-block">
+&lt;article class="fleet-card"&gt;
+    &lt;div class="card-image"&gt;&lt;/div&gt;
+    &lt;div class="card-content"&gt;
+        &lt;h3&gt;Marca Model&lt;/h3&gt;
+        &lt;div class="specs"&gt;...&lt;/div&gt;
+        &lt;div class="pricing"&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+            </div>
+
+            <p>De asemenea, am integrat <strong>SVG-uri</strong> direct în cod pentru a asigura o claritate maximă a iconițelor și a elementelor grafice (cum ar fi loader-ul animat sau formele decorative din fundal) indiferent de rezoluția ecranului.</p>
+            <div class="page-number">Pagina 4</div>
+        </div>
+
+        <!-- PAGINA 5: CSS -->
+        <div class="page">
+            <h2>2.2 CSS3 & Design Sistem</h2>
+            <p>Designul vizual al platformei Wave se bazează pe conceptul de <strong>Glassmorphism</strong> și <strong>Modern Minimalist</strong>. Am creat un sistem de design scalabil utilizând variabile CSS (Custom Properties).</p>
+            
+            <span class="code-title">Definirea paletei de culori și a variabilelor de stare:</span>
+            <div class="code-block">
+:root {
+    --primary: #2563eb;
+    --navy-900: #0f172a;
+    --white: #ffffff;
+    --radius-lg: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode {
+    --white: #0a1628;
+    --navy-900: #ffffff;
+    --gray-50: #112240;
+}
+            </div>
+
+            <p>Pentru layout am utilizat intensiv <strong>Flexbox</strong> și <strong>CSS Grid</strong>, asigurând o adaptabilitate completă pe orice dispozitiv. Animațiile au fost realizate utilizând <code>@keyframes</code> și proprietatea <code>transition</code>, oferind o interfață „vie” care reacționează la interacțiunile utilizatorului.</p>
+            
+            <div class="mockup">
+                <div class="mockup-header">
+                    <div style="font-size: 12px; font-weight: 700;">Butoane & Interacțiuni</div>
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <div style="background: var(--accent); padding: 10px 20px; border-radius: 8px; font-size: 11px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);">PRIMARY BUTTON</div>
+                    <div style="border: 2px solid var(--accent); padding: 8px 18px; border-radius: 8px; font-size: 11px; color: var(--accent);">OUTLINE BUTTON</div>
+                </div>
+            </div>
+            <div class="page-number">Pagina 5</div>
+        </div>
+
+        <!-- PAGINA 6: JS -->
+        <div class="page">
+            <h2>2.3 JavaScript & Dinamică</h2>
+            <p>Limbajul JavaScript a fost coloana vertebrală a interactivității. Am optat pentru un stil de programare modular, separând responsabilitățile: gestionarea bazei de date de mașini, logica de filtrare, managementul temei și validarea formularelor.</p>
+            
+            <h3>Funcții Cheie Implementate:</h3>
+            <ul>
+                <li><strong>Intersection Observer</strong>: Pentru a declanșa animațiile de fade-in și slide-up pe măsură ce utilizatorul face scroll.</li>
+                <li><strong>LocalStorage</strong>: Pentru a persista setările de Dark Mode și datele din comenzi între reîncărcările paginii.</li>
+                <li><strong>Asynchronous Requests</strong>: Utilizate pentru a prelua imagini dinamice prin Imagin Studio API.</li>
+                <li><strong>DOM Manipulation</strong>: Generarea a peste 50 de carduri auto dintr-o singură sursă de date JSON.</li>
+            </ul>
+
+            <span class="code-title">Logica de observare a elementelor pentru animație:</span>
+            <div class="code-block">
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+            </div>
+            <div class="page-number">Pagina 6</div>
+        </div>
+
+        <!-- PAGINA 7: ARHITECTURA -->
+        <div class="page">
+            <h2>3. Arhitectura și Funcționalitățile Aplicației</h2>
+            
+            <h3>3.1 Sistemul de Navigare și Preloader</h3>
+            <p>Experiența utilizatorului începe cu un <strong>Preloader</strong> sofisticat, realizat în SVG, care elimină senzația de „flash” vizual până când toate resursele sunt încărcate.</p>
+            
+            <div class="mockup" style="background: #0f172a; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 150px;">
+                <div style="display: flex; gap: 8px;">
+                    <div style="width: 10px; height: 10px; background: white; border-radius: 50%; animation: pulse 1s infinite;"></div>
+                    <div style="width: 10px; height: 10px; background: white; border-radius: 50%; animation: pulse 1s infinite 0.2s;"></div>
+                    <div style="width: 10px; height: 10px; background: white; border-radius: 50%; animation: pulse 1s infinite 0.4s;"></div>
+                </div>
+                <div style="margin-top: 15px; font-weight: 700; letter-spacing: 3px;">WAVE</div>
+            </div>
+
+            <p>Navigarea este realizată printr-un <strong>Sticky Navbar</strong> care monitorizează scroll-ul. Când utilizatorul coboară în pagină, fundalul meniului devine semi-transparent cu efect de blur, oferind o vizibilitate mai bună asupra conținutului subiacent.</p>
+            
+            <h3>3.1.1 Meniul Hamburger (Mobile)</h3>
+            <p>Pentru ecranele mici, am dezvoltat un meniu personalizat care se deschide într-un stil „overlay”, oferind o experiență tactilă similară cu cea a unei aplicații native de iOS sau Android.</p>
+            <div class="page-number">Pagina 7</div>
+        </div>
+
+        <!-- PAGINA 8: HERO -->
+        <div class="page">
+            <h2>3.2 Secțiunea Hero și Particule</h2>
+            <p>Secțiunea <strong>Hero</strong> este elementul principal de atracție visuală. Aceasta combină animații de text cu un sistem de particule plutitoare generate prin JavaScript.</p>
+            
+            <div class="mockup" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 10%; right: 10%; width: 5px; height: 5px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+                <div style="position: absolute; bottom: 20%; left: 15%; width: 8px; height: 8px; background: rgba(37,99,235,0.3); border-radius: 50%;"></div>
+                <div style="position: relative; z-index: 2;">
+                    <div style="background: rgba(255,255,255,0.1); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 10px; margin-bottom: 10px;">PROMOȚIE: -20% PRIMA ÎNCHIRIERE</div>
+                    <h1 style="color: white; text-align: left; font-size: 24pt; margin: 0;">Călătoria ta începe cu <span style="color: #3b82f6;">Wave</span></h1>
+                </div>
+            </div>
+
+            <p><strong>Sistemul de Particule:</strong> Am creat o funcție care generează 30 de elemente de tip <code>&lt;div&gt;</code> cu poziții, dimensiuni și viteze de animație aleatorii. Acestea adaugă profunzime vizuală fără a afecta performanța, spre deosebire de un fișier video de mari dimensiuni.</p>
+            
+            <span class="code-title">Funcția de creare a particulelor:</span>
+            <div class="code-block">
+function createParticles() {
+    const container = document.getElementById("particles");
+    for (let i = 0; i < 30; i++) {
+        const p = document.createElement("div");
+        p.classList.add("particle");
+        p.style.left = Math.random() * 100 + "%";
+        p.style.top = Math.random() * 100 + "%";
+        p.style.animationDelay = Math.random() * 5 + "s";
+        container.appendChild(p);
+    }
+}
+            </div>
+            <div class="page-number">Pagina 8</div>
+        </div>
+
+        <!-- PAGINA 9: FLOTA -->
+        <div class="page">
+            <h2>3.3 Flota Dinamică și Filtrarea</h2>
+            <p>Secțiunea de <strong>Flotă</strong> este cea mai complexă din punct de vedere al manipulării datelor. Am stocat informațiile despre vehicule într-un obiect structurat, pe care l-am parcurs pentru a genera cardurile în pagină.</p>
+            
+            <div class="mockup" style="background: transparent; color: #111; padding: 0;">
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                    <div style="background: var(--accent); color: white; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-family: 'Inter';">Toate</div>
+                    <div style="border: 1px solid #ddd; color: #666; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-family: 'Inter';">SUV</div>
+                    <div style="border: 1px solid #ddd; color: #666; padding: 5px 12px; border-radius: 20px; font-size: 10px; font-family: 'Inter';">Sedan</div>
+                </div>
+                
+                <div class="mockup-fleet-card" style="box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 1px solid #eee; background: white;">
+                    <div class="mockup-fleet-img" style="background: #f8fafc;">
+                        <img src="wave.png" style="width: 100px; opacity: 0.4;">
+                    </div>
+                    <div class="mockup-fleet-info">
+                        <div style="font-weight: 700; color: #0f172a;">BMW Seria 3</div>
+                        <div style="font-size: 10px; color: #64748b; margin-top: 4px;">Diesel • Automat • 2024</div>
+                        <div class="mockup-fleet-price">
+                            <span style="font-size: 16px; font-weight: 800; color: var(--accent);">65€<small style="font-size: 9px; color: #64748b; font-weight: 400;">/zi</small></span>
+                            <div style="background: #f1f5f9; padding: 4px 10px; border-radius: 4px; font-size: 9px; font-weight: 600;">Detalii</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p><strong>Logica de Filtrare:</strong> Utilizatorul poate filtra mașinile după caroserie (SUV, Sedan, etc.). Am implementat această funcție folosind atributele <code>data-filter</code> și clasa <code>hidden</code>, asigurând o tranziție vizuală lină prin opacitate.</p>
+            <div class="page-number">Pagina 9</div>
+        </div>
+
+        <!-- PAGINA 10: GENERARE -->
+        <div class="page">
+            <p>Generarea cardurilor se face printr-un loop JavaScript care extrage Marca, Modelul, Anul și Prețul, injectând ulterior string-ul HTML formatat în containerul <code>#fleetGrid</code>.</p>
+            
+            <span class="code-title">Loop-ul de generare a cardurilor auto:</span>
+            <div class="code-block">
+Object.entries(carDatabase).forEach(([make, data]) => {
+    Object.entries(data.models).forEach(([model, info]) => {
+        const card = document.createElement("div");
+        card.className = `fleet-card ${bodyTypeMap[info.caroserii[0]]}`;
+        card.innerHTML = `
+            &lt;div class="card-img"&gt;
+                &lt;img src="${getImageUrl(make, model)}"&gt;
+            &lt;/div&gt;
+            &lt;div class="card-info"&gt;
+                &lt;h3&gt;${make} ${model}&lt;/h3&gt;
+                &lt;p&gt;${info.pret}€ / zi&lt;/p&gt;
+            &lt;/div&gt;
+        `;
+        grid.appendChild(card);
+    });
+});
+            </div>
+
+            <p>Această metodă permite adăugarea a sute de mașini în „baza de date” JavaScript fără a fi nevoie de scrierea a mii de linii de cod HTML manual.</p>
+            <div class="page-number">Pagina 10</div>
+        </div>
+
+        <!-- PAGINA 11: FORMULAR -->
+        <div class="page">
+            <h2>3.4 Formularul de Rezervare Multi-Step</h2>
+            <p>Pentru a oferi o experiență cât mai plăcută, am divizat procesul de rezervare în 3 pași clari. Acest lucru reduce încărcarea cognitivă a utilizatorului și crește rata de finalizare a formularelor.</p>
+            
+            <div class="mockup" style="background: #f8fafc; border: 1px solid #e2e8f0; color: #1e293b;">
+                <div class="mockup-form-progress">
+                    <div class="mockup-step" style="background: var(--accent); color: white;">1</div>
+                    <div class="mockup-step" style="background: #cbd5e1; color: #64748b;">2</div>
+                    <div class="mockup-step" style="background: #cbd5e1; color: #64748b;">3</div>
+                    <div class="mockup-line"></div>
+                </div>
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; text-align: left;">
+                    <div style="font-size: 11px; font-weight: 700; margin-bottom: 5px;">Marca</div>
+                    <div style="height: 30px; border: 1px solid #ddd; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; font-size: 10px;">BMW</div>
+                    <div style="font-size: 11px; font-weight: 700; margin-top: 10px; margin-bottom: 5px;">Model</div>
+                    <div style="height: 30px; border: 1px solid #ddd; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; font-size: 10px; color: #94a3b8;">Selectează modelul...</div>
+                </div>
+            </div>
+
+            <h3>Funcționalități pas-cu-pas:</h3>
+            <ol>
+                <li><strong>Pasul 1 (Mașina)</strong>: Dropdown-uri interconectate. Selectarea mărcii actualizează automat modelele, anii și culorile disponibile folosind JavaScript.</li>
+                <li><strong>Pasul 2 (Perioada)</strong>: Calcularea automată a duratei între data de preluare și data de returnare.</li>
+                <li><strong>Pasul 3 (Date Personale)</strong>: Validarea prin <strong>Regex</strong> (expresii regulate) a CNP-ului, numărului de telefon și adresei de email.</li>
+            </ol>
+            <div class="page-number">Pagina 11</div>
+        </div>
+
+        <!-- PAGINA 12: VALIDARE -->
+        <div class="page">
+            <p><strong>Validarea datelor:</strong> Nu permitem trecerea la următorul pas dacă input-urile obligatorii sunt goale sau incorect formatate. Am creat o funcție centralizată <code>validateStep(n)</code> care verifică toate câmpurile pasului curent.</p>
+            
+            <span class="code-title">Validarea CNP-ului și a Email-ului:</span>
+            <div class="code-block">
+const patterns = {
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    tel: /^\d{10}$/,
+    cnp: /^\d{13}$/
+};
+
+function validateField(id, pattern) {
+    const el = document.getElementById(id);
+    if (!pattern.test(el.value)) {
+        showError(id, "Format incorect");
+        return false;
+    }
+    return true;
+}
+            </div>
+
+            <p>După finalizarea cu succes, datele sunt colectate într-un obiect <code>orderData</code>, primesc un ID unic de tipul <code>CMD-XXXXXX</code> și sunt salvate în <code>localStorage</code>, simulând trimiterea către un server real.</p>
+            <div class="page-number">Pagina 12</div>
+        </div>
+
+        <!-- PAGINA 13: DARK MODE -->
+        <div class="page">
+            <h2>3.5 Managementul Temelor (Dark Mode)</h2>
+            <p>Implementarea <strong>Dark Mode</strong> nu este doar un moft estetic, ci o necesitate pentru confortul vizual al utilizatorului. Sistemul meu schimbă întregul design folosind o singură clasă pe tag-ul <code>&lt;body&gt;</code>.</p>
+            
+            <div class="mockup" style="display: flex; justify-content: center; gap: 40px; background: transparent; padding: 20px;">
+                <div style="background: white; border: 1px solid #ddd; border-radius: 10px; width: 120px; padding: 15px; color: black; font-size: 10px; text-align: center;">
+                    <i class="fas fa-sun" style="font-size: 20px; color: #fbbf24; margin-bottom: 10px;"></i><br>LIGHT MODE
+                </div>
+                <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 10px; width: 120px; padding: 15px; color: white; font-size: 10px; text-align: center;">
+                    <i class="fas fa-moon" style="font-size: 20px; color: #60a5fa; margin-bottom: 10px;"></i><br>DARK MODE
+                </div>
+            </div>
+
+            <h3>Persistența Temei:</h3>
+            <p>Pentru a evita „efectul de bliț” (site-ul să pornească pe alb și să sară pe negru după încărcare), am plasat un script mic în <code>&lt;head&gt;</code> care verifică <code>localStorage</code> imediat ce pagina începe să se încarce.</p>
+            
+            <span class="code-title">Script de inițializare a temei (plasat în Head):</span>
+            <div class="code-block">
+(function() {
+    const theme = localStorage.getItem('wave_theme');
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+    }
+})();
+            </div>
+            <div class="page-number">Pagina 13</div>
+        </div>
+
+        <!-- PAGINA 14: API -->
+        <div class="page">
+            <h2>4. Integrare API și Stocare</h2>
+            <p>Un punct forte al proiectului este utilizarea <strong>Imagin Studio API</strong>. Acest serviciu extern îmi permite să afișez imagini de înaltă calitate pentru orice mașină, fără a stoca mii de fișiere local.</p>
+            
+            <span class="code-title">Construirea URL-ului pentru API-ul de imagini:</span>
+            <div class="code-block">
+function getImageUrl(make, model, color) {
+    const url = new URL("https://cdn.imagin.studio/getimage");
+    url.searchParams.append("customer", "hrjavascript-mastery");
+    url.searchParams.append("make", make);
+    url.searchParams.append("modelFamily", model);
+    url.searchParams.append("zoomType", "fullscreen");
+    if (color) url.searchParams.append("paintId", colorMap[color]);
+    return url.toString();
+}
+            </div>
+
+            <p><strong>Configurarea Datelor:</strong> Rezervările sunt stocate în <code>localStorage</code> sub cheia <code>wave_rent_orders</code>. Am implementat și un fișier <code>comenzi.json</code> care servește drept model pentru structura datelor, pregătind aplicația pentru o eventuală integrare cu un backend real (Node.js/PHP).</p>
+            <div class="page-number">Pagina 14</div>
+        </div>
+
+        <!-- PAGINA 15: CERINTE -->
+        <div class="page">
+            <h2>5. Cerințe Hardware și Software</h2>
+            
+            <h3>Cerințe Software:</h3>
+            <ul>
+                <li><strong>Sistem de operare</strong>: Orice OS modern (Windows 10+, macOS, Linux, Android, iOS).</li>
+                <li><strong>Browser</strong>: Orice navigator web care suportă standardul ES6 (Chrome, Edge, Firefox, Safari).</li>
+                <li><strong>Editor Cod</strong>: Am utilizat Visual Studio Code pentru dezvoltare, profitând de extensiile de formatare și Live Server.</li>
+            </ul>
+
+            <h3>Cerințe Hardware (Minime):</h3>
+            <ul>
+                <li><strong>Procesor</strong>: Minim 1.2 GHz.</li>
+                <li><strong>Memorie RAM</strong>: Minim 2 GB (necesari pentru procesarea browser-ului la animații complexe).</li>
+                <li><strong>Conexiune Internet</strong>: Necesară pentru încărcarea iconițelor FontAwesome și a imaginilor via API.</li>
+            </ul>
+
+            <div class="mockup" style="background: #f1f5f9; color: #0f172a; text-align: left; padding: 15px;">
+                <div style="font-weight: 700; border-bottom: 1px solid #ddd; margin-bottom: 10px; padding-bottom: 5px;">Testare Performanță</div>
+                <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                    <span>Încărcare inițială</span><span style="color: #10b981; font-weight: 700;">&lt; 1.2s</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 11px; margin-top: 5px;">
+                    <span>Răspuns UI</span><span style="color: #10b981; font-weight: 700;">60 FPS</span>
+                </div>
+            </div>
+            <div class="page-number">Pagina 15</div>
+        </div>
+
+        <!-- PAGINA 16: CONCLUZII -->
+        <div class="page">
+            <h2>6. Concluzii</h2>
+            <p>Realizarea proiectului <strong>Wave</strong> mi-a permis să pun în practică și să consolidez cunoștințele de informatică dobândite pe parcursul liceului la Colegiul Național „A.T. Laurian”. Am demonstrat că prin utilizarea corectă a limbajelor de bază (HTML, CSS, JS) se pot crea platforme complexe, estetice și perfect funcționale, fără a depinde de framework-uri externe greoaie.</p>
+            <p>Provocarea cea mai mare a fost gestionarea stării formularului multi-step și asigurarea unei interfețe fluide în momentul schimbării temelor. Rezolvarea acestor probleme m-a ajutat să înțeleg mai bine conceptele de <strong>Event Handling</strong>, <strong>State Management</strong> și <strong>DOM Manipulation</strong>.</p>
+            <p>Consider că platforma dezvoltată reprezintă un punct de pornire solid pentru o aplicație comercială, fiind pregătită pentru scalare și integrare cu sisteme de baze de date SQL sau platforme de plată online.</p>
+            <div class="page-number">Pagina 16</div>
+        </div>
+
+        <!-- PAGINA 17: BIBLIOGRAFIE -->
+        <div class="page">
+            <h2>7. Bibliografie</h2>
+            <div style="margin-top: 30pt; line-height: 2;">
+                <p>1. <strong>MDN Web Docs</strong> - developer.mozilla.org (Referință completă JavaScript și CSS)</p>
+                <p>2. <strong>W3Schools</strong> - w3schools.com (Tutoriale și bune practici HTML5)</p>
+                <p>3. <strong>FontAwesome</strong> - fontawesome.com (Librăria de pictograme utilizată)</p>
+                <p>4. <strong>Google Fonts</strong> - fonts.google.com (Resurse tipografice: Inter și Playfair Display)</p>
+                <p>5. <strong>Imagin Studio</strong> - imagin.studio (Documentație API pentru imaginile auto)</p>
+                <p>6. <strong>Stack Overflow</strong> - stackoverflow.com (Rezolvarea problemelor specifice de debugging)</p>
+                <p>7. <strong>CSS-Tricks</strong> - css-tricks.com (Ghiduri avansate pentru Flexbox și CSS Grid)</p>
+            </div>
+            <div class="page-number">Pagina 17</div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling is native, but we can add minor logic if needed
+    </script>
+</body>
+</html>
